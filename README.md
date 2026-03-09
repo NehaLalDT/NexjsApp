@@ -68,17 +68,7 @@ You can get these values from the **Supabase Dashboard**:
    * **Project URL**
    * **Anon Public Key**
 
----
 
-## Test Configuration (Optional)
-
-If you do not have a Supabase project set up, you can use the following keys for testing purposes.
-
-Simply copy and paste them into your `.env.local` file:
-
-```
-NEXT_PUBLIC_SUPABASE_URL=https://yrnyzcfscoukxotvqair.supabase.co
-NEXT_PUBLIC_SUPABASE_ANON_KEY=sb_publishable_Ph39bzdTipc7kue-z2ihAQ_eJG-emM6
 ```
 
 ---
