@@ -1,36 +1,132 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Audit Project Upload – MVP
+
+## Overview
+
+This project is a **Minimum Viable Product (MVP)** that allows users to create and upload audit projects through a web interface.
+
+The system enables users to submit project details and upload a **PDF document**. The uploaded file is securely stored in cloud storage, while the project information is saved in a database.
+
+This MVP demonstrates the **core workflow of project creation and file upload**.
+
+---
+
+## Technology Stack
+
+| Technology | Version          |
+| ---------- | ---------------- |
+| Node.js    | v20.19.0         |
+| Next.js    | 16.1.6           |
+| Database   | Supabase         |
+| Storage    | Supabase Storage |
+
+
+# Environment Setup
+
+Before running the project, create an environment configuration file.
+
+## Step 1 – Create Environment File
+
+Create a file named:
+
+```
+.env.local
+```
+
+in the **root directory** of the project.
+
+---
+
+## Step 2 – Add Supabase Configuration
+
+Add the following environment variables to the `.env.local` file:
+
+```
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+```
+
+---
+
+## Example
+
+```
+NEXT_PUBLIC_SUPABASE_URL=https://your-project-id.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
+```
+
+---
+
+## Where to Find These Keys
+
+You can get these values from the **Supabase Dashboard**:
+
+1. Open your Supabase project
+2. Go to **Project Settings**
+3. Select **API**
+4. Copy:
+
+   * **Project URL**
+   * **Anon Public Key**
+
+---
+
+## Test Configuration (Optional)
+
+If you do not have a Supabase project set up, you can use the following keys for testing purposes.
+
+Simply copy and paste them into your `.env.local` file:
+
+```
+NEXT_PUBLIC_SUPABASE_URL=https://yrnyzcfscoukxotvqair.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=sb_publishable_Ph39bzdTipc7kue-z2ihAQ_eJG-emM6
+```
+
+---
 
 ## Getting Started
 
-First, run the development server:
+Follow the steps below to run the project locally.
+
+### 1. Install Dependencies
+
+```bash
+npm install
+```
+
+### 2. Start Development Server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 3. Open the Application
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Open the following URL in your browser:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+http://localhost:3000/new-audit
+```
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Data Verification (Supabase)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+After submitting the **New Audit Project** form, a new record will be created in the Supabase database.
 
-## Deploy on Vercel
+To verify the data:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Open your Supabase project dashboard.
+2. Navigate to **Table Editor**.
+3. Select the **projects** table.
+4. You will see the newly created record with:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+   * Project Name
+   * Project Type
+   * Structural System
+   * File Path
+   * Status (`queued`)
+   * Created Timestamp
+
+This confirms that the form submission and file upload were successfully stored in the database.
+
